@@ -23,5 +23,6 @@ class AdvertsController < ApplicationController
   end
   def set_model
     @model_name = params[:model_name]
+    @category_by_model = Category.find_by_id(params[:category_id])    
   end
 end
