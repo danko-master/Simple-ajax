@@ -1,6 +1,8 @@
 TestApp2::Application.routes.draw do
   
-  resources :adverts
+  resources :adverts do
+    collection { post :get_models_by_brand, :set_model }
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -9,12 +9,19 @@ class AdvertsController < ApplicationController
      @all_brands = Brand.all
      @all_models = Model.all
      
-    @brand = Brand.first    
-    @category = Category.first 
-       
+     
+    @category = Category.first       
     @models = @category.models
     @brands = @category.brands
     
   
+  end
+  
+  def get_models_by_brand
+    @brand_name = params[:brand_name]
+    @models_by_brand = Model.where(:brand_id => params[:brand_id])
+  end
+  def set_model
+    @model_name = params[:model_name]
   end
 end
