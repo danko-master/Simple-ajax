@@ -1,0 +1,50 @@
+<b>New adv</b>
+<br><br>
+<%= @brand.id %><br><%= @brand.name %>
+<br/><br>
+<%= @models %>
+<br/><br><br/><br>
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Бренды</a>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <ul>
+    <% @all_brands.each do |ab| %>
+      <li>Name: <%= link_to_remote ab.name, :update => 'div_models', :url => {:action => "get_models_by_brand", } %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id='div_models'>
+	<%= render 'models' %>	
+</div>
+
+<br/><br>
+Все категории
+<br/><br>
+  <ul>
+    <% @all_categories.each do |c| %>
+      <li>Name: <%= link_to c.name %></li>
+    <% end %>
+  </ul>
+
+<br/><br>
+by category
+<ul>
+  <% @models.each do |m| %>
+    <li>Name: <%= m.name %>, brand id: <%= m.brand_id %>, category id: <%= m.category_id %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @brands.each do |b| %>
+    <li>Name: <%= b.name %></li>
+  <% end %>
+</ul>
+
+
+
+<br/><br><br/><br>
+<ul>
+  <% @all_models.each do |m| %>
+    <li>Name:<%= m.name %>, brand id: <%= m.brand_id %>, category id: <%= m.category_id %></li>
+  <% end %>
+</ul>
