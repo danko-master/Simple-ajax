@@ -26,9 +26,11 @@ class AdvertsController < ApplicationController
     
     @category_by_model = Category.find_by_id(params[:category_id])    
     
-    @car = Car.new(:model_id => params[:model_id])
+    @car = Car.new
   end
   def create_adv
-    @car = Car.new # Исправить
+    @car = Car.new(:name => params[:name], :model_id => params[:model_id])
+    @car.save # Исправить
   end
+    
 end
