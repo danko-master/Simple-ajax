@@ -3,7 +3,6 @@ class AdvertsController < ApplicationController
     @all_brands = Brand.all
     #@models_by_brand = 
     
-    
     # Не используется
      @all_categories = Category.all
      @all_brands = Brand.all
@@ -14,7 +13,7 @@ class AdvertsController < ApplicationController
     @models = @category.models
     @brands = @category.brands
     
-  
+    @all_cars = Car.all
   end
   
   def get_models_by_brand
@@ -23,11 +22,13 @@ class AdvertsController < ApplicationController
   end
   def set_model
     @model_name = params[:model_name]
+    @model_id = params[:model_id]
+    
     @category_by_model = Category.find_by_id(params[:category_id])    
     
     @car = Car.new(:model_id => params[:model_id])
   end
   def create_adv
-    @car = Car.new
+    @car = Car.new # Исправить
   end
 end

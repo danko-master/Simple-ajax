@@ -24,6 +24,14 @@
 <div id='div_form'></div>
 <br/><br>
 <br/><br>
+All Items
+<ul>
+  <% @all_cars.each do |ac| %>
+    <li>ID: <%= ac.id %>, Name: <%= ac.name %></li>
+  <% end %>
+</ul>
+
+<br/><br>
 
 Все категории
 <br/><br>

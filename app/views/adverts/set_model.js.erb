@@ -3,4 +3,5 @@ $('#div_category_name').html("<%= @category_by_model.name %>")
 $('#model_modal').modal('hide')
 
 
-$('#div_form').html("<%= escape_javascript(render('car')) %>")
+
+$('#div_form').html("<%= escape_javascript(render('car', :locals => { :model_id => @model_id })) %>")
