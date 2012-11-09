@@ -1,6 +1,0 @@
-<%= form_for @car, :url => create_adv_adverts_path, :remote => true do %>
-  <%= label_tag :name, "Имя" %>
-  <%= text_field_tag :name  %>
-  <%= hidden_field_tag :model_id, @model_id %>
-  <%= submit_tag("Готово") %>
-<% end %>
