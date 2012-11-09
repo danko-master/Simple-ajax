@@ -15,9 +15,9 @@ city_4 = City.create! :name => 'City 4'
 city_5 = City.create! :name => 'City 5'
 
 
-cat_1 = Category.create! :name => 'Category 1'
-cat_2 = Category.create! :name => 'Category 2'
-cat_3 = Category.create! :name => 'Category 3'
+cat_1 = Category.create! :name => 'Category 1', :alias => 'cars'
+cat_2 = Category.create! :name => 'Category 2', :alias => 'trucks'
+cat_3 = Category.create! :name => 'Category 3', :alias => 'buses'
 
 
 brand_1 = Brand.create! :name => 'Brand 1'
