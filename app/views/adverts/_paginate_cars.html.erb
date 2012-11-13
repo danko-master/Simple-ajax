@@ -1,0 +1,15 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="pretty">
+  <tr>
+    <th style="padding-left: 10px; padding-right: 50px;"><%= sortable "name" %></th>
+    <th><%= sortable "model_id" %></th>
+  </tr>
+  <% for car in @paginate_cars %>
+    <tr>
+      <td><%= car.name %></td>
+      <td><%= car.model_id %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @paginate_cars %>

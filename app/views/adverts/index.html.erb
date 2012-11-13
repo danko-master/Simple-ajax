@@ -1,0 +1,15 @@
+<br/><br>
+Paginate
+<br/><br>
+<%= form_tag adverts_path, :method => 'get', :id => "products_search" do %>
+  <div id="products"><%= render 'paginate_cars' %></div>
+<% end %>
+<br/><br>
+<ul>
+  <%  @paginate_cars.each do |pc| %>
+    <li>ID: <%= pc.id %>, Name: <%= pc.name %>, Model_ID: <%= pc.model_id %></li>
+  <% end %>
+</ul>
+<%= will_paginate @paginate_cars  %>
+
+<br/><br>
