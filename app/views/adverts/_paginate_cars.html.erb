@@ -2,8 +2,8 @@
 <%= hidden_field_tag :sort, params[:sort] %>
 <table class="pretty">
   <tr>
-    <th style="padding-left: 10px; padding-right: 50px;"><%= sortable "name" %></th>
-    <th><%= sortable "model_id" %></th>
+    <th style="padding-left: 10px; padding-right: 50px;"><%= sortable "name", "Имена" %></th>
+    <th><%= sortable "model_id", "My modelzzzz" %></th>
   </tr>
   <% for car in @paginate_cars %>
     <tr>
