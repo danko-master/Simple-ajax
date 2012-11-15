@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :remember_me, :password_confirmation,
     :name, :phone_number, :area_id, :city_id                                                                                                                                                                                                                                                                                                
   # attr_accessible :title, :body
+  
+  phone_number_regex = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/i
+  
+  validates :phone_number,
+                :presence => true,
+                :format => {:with => phone_number_regex}
+  
 end
