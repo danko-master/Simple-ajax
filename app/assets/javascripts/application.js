@@ -13,26 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-modal
+//= require bootstrap-tab
 //= require_tree .
-
-
-if (history && history.pushState) {
-  $(function() {
-    $("#products th a, #products .pagination a").live("click", function(e) {
-      $.getScript(this.href);
-      history.pushState(null, document.title, this.href);
-      e.preventDefault();
-    });
-    $(window).bind("popstate", function() {
-      $.getScript(location.href);
-    });
-  });
-}
-
-
-  //$(function() {
-  //  $("#products th a, #products .pagination a").live("click", function() {
-  //    $.getScript(this.href);
-  //    return false;
-  //  });
-  //});

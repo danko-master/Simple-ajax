@@ -1,0 +1,44 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  
+  
+    <ul class="nav nav-tabs">
+      <li class="active" ><a href="#home" data-toggle="tab">Личные даныне</a></li>
+      <li><a href="#profile" data-toggle="tab">Изменить пароль</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">
+      	<div><%= f.label :name %><br />
+        <%= f.text_field :name %></div>
+        <div><%= f.label :phone_number %><br />
+        	<div>десять цифр без 8 и +7</div>
+        <%= f.text_field :phone_number, :maxlength => 10 %></div>
+        <div><%= f.label :area_id %><br />
+        <%= f.text_field :area_id %></div>
+        <div><%= f.label :city_id %><br />
+        <%= f.text_field :city_id %></div>
+      	<div><%= f.label :email %><br />
+        <%= f.email_field :email %></div></div>
+      <div class="tab-pane" id="profile">
+      	<div><%= f.label :password %><br />
+        <%= f.password_field :password, :autocomplete => "off" %></div>
+    
+        <div><%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation %></div>        
+      </div>
+    </div>
+ 
+ <br /><br />
+
+  <div><%= f.label :current_password  %><br />
+        <%= f.password_field :current_password  %></div>
+  <div><%= f.submit "Update" %></div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+
+<%= link_to "Back", :back %>
