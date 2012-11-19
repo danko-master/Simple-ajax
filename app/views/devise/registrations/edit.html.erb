@@ -1,5 +1,38 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+
+    <br/><br/>        
+    <a href="#location_modal" role="button" class="btn" data-toggle="modal">Choose city or area</a>
+     
+    <!-- Modal -->
+    <div id="location_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">My place</h3>
+      </div>
+      <div class="modal-body">
+      	<ul class="nav nav-tabs">
+      	  <li class="active" ><a href="#city" data-toggle="tab">Города</a></li>
+      	  <li><a href="#area" data-toggle="tab">Районы</a></li>
+      	</ul>
+      	<div class="tab-content">
+      		<div class="tab-pane active" id="city">
+      		  <ul>
+        	   <%= render :partial => 'city', :collection => cities, :as => :item %>      			
+      		</div>
+      		<div class="tab-pane" id="area">
+      		  <ul>
+        	   <%= render :partial => 'area', :collection => areas, :as => :item %>      			
+      		</div>
+      	</div>
+      </div>
+    </div>    
+    <br/><br/>
+    
+    <div id="selected_city"><a href="#" id="a_city_name"></a></div>
+    <div id="selected_area"><a href="#" id="a_area_name"></a></div>
+
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
   
@@ -15,6 +48,9 @@
         <div><%= f.label :phone_number %><br />
         	<div>десять цифр без 8 и +7</div>
         <%= f.text_field :phone_number, :maxlength => 10 %></div>
+        
+
+        
         <div><%= f.label :area_id %><br />
         <%= f.text_field :area_id %></div>
         <div><%= f.label :city_id %><br />
@@ -22,18 +58,17 @@
       	<div><%= f.label :email %><br />
         <%= f.email_field :email %></div></div>
       <div class="tab-pane" id="profile">
-      	<div><%= f.label :password %><br />
+       <div><%= f.label :password %><br />
         <%= f.password_field :password, :autocomplete => "off" %></div>
     
         <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation %></div>        
+        <%= f.password_field :password_confirmation %></div> 
       </div>
     </div>
  
  <br /><br />
 
-  <div><%= f.label :current_password  %><br />
-        <%= f.password_field :current_password  %></div>
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 

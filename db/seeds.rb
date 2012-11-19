@@ -8,11 +8,35 @@
 
 Rake::Task['db:reset'].invoke
 
-city_1 = City.create! :name => 'City 1'
-city_2 = City.create! :name => 'City 2'
-city_3 = City.create! :name => 'City 3'
-city_4 = City.create! :name => 'City 4'
-city_5 = City.create! :name => 'City 5'
+type_1 = Type.create! :name => 'Capital'
+type_2 = Type.create! :name => 'City'
+type_3 = Type.create! :name => 'PGT'
+type_4 = Type.create! :name => 'Village'
+
+area_1 = Area.create! :name => 'Area 1 for Capital'
+area_2 = Area.create! :name => 'Area 2'
+area_3 = Area.create! :name => 'Area 3'
+area_4 = Area.create! :name => 'Area 4'
+
+
+city_1 = City.create! :name => 'City 1 Capital', :area_id => area_1.id, :type_id => type_1.id, :is_center => true
+
+city_2 = City.create! :name => 'City 2_center', :area_id => area_2.id, :type_id => type_2.id, :is_center => true
+city_4 = City.create! :name => 'City 4_city', :area_id => area_2.id, :type_id => type_2.id, :is_center => false
+city_5 = City.create! :name => 'City 5_pgt', :area_id => area_2.id, :type_id => type_3.id, :is_center => false
+city_6 = City.create! :name => 'City 6_village', :area_id => area_2.id, :type_id => type_4.id, :is_center => false
+
+city_3 = City.create! :name => 'City 3_center', :area_id => area_3.id, :type_id => type_2.id, :is_center => true
+city_7 = City.create! :name => 'City 7_city', :area_id => area_3.id, :type_id => type_2.id, :is_center => false
+city_8 = City.create! :name => 'City 8_city', :area_id => area_3.id, :type_id => type_2.id, :is_center => false
+city_9 = City.create! :name => 'City 9_pgt', :area_id => area_3.id, :type_id => type_3.id, :is_center => false
+
+
+city_10 = City.create! :name => 'City 10_village', :area_id => area_4.id, :type_id => type_4.id, :is_center => true
+city_11 = City.create! :name => 'City 11_village', :area_id => area_4.id, :type_id => type_4.id, :is_center => false
+city_12 = City.create! :name => 'City 12_pgt', :area_id => area_4.id, :type_id => type_3.id, :is_center => false
+city_13 = City.create! :name => 'City 13_pgt', :area_id => area_4.id, :type_id => type_3.id, :is_center => false
+
 
 
 cat_1 = Category.create! :name => 'Category 1', :alias => 'cars'

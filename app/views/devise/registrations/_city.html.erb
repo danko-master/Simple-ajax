@@ -1,0 +1,1 @@
+<li>Area: <%= item.area_id %>, City: <%= item.id %>: <%= link_to item.name, set_area_by_city_user_registration_path(:city_id => item.id, :city_name => item.name), :remote => true, :method => :put %></li>
