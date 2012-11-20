@@ -24,6 +24,10 @@ class RegistrationsController < Devise::RegistrationsController
     
     @area = City.get_area_by_city(@city_id)
     
+    puts @city_name
+    puts @area.id
+    puts @area.name
+    
     @user = User.find(current_user.id)
     #@user.update(:area_id => @area.id, :city_id => @city_id)
     successfully_updated = @user.update_without_password(:area_id => @area.id, :city_id => @city_id)
@@ -31,7 +35,7 @@ class RegistrationsController < Devise::RegistrationsController
     if successfully_updated
       # Sign in the user bypassing validation in case his password changed
       sign_in @user, :bypass => true
-      redirect_to edit_user_registration_path
+      #redirect_to edit_user_registration_path
     else
       render "edit"
     end

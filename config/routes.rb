@@ -9,9 +9,10 @@ TestApp2::Application.routes.draw do
           get "/users" => "devise/registrations#new", :as => :new_user_registration
           get "/users/edit" => "devise/registrations#edit", :as => :edit_user_registration
           put "/users" => "registrations#update"
-          put "/users" => "registrations#set_area_by_city", :as => :set_area_by_city_user_registration
+          put "/users/edit" => "registrations#set_area_by_city", :as => :set_area_by_city_user_registration
           post "/users" => "registrations#set_city_by_area", :as => :set_city_by_area_user_registration
         end
+
   
   resources :adverts do
     collection { post :get_models_by_brand, :set_model, :create_adv }
