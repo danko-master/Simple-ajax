@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   
   phone_number_regex = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/i
   
-  #validates :phone_number,
+  validates :phone_number,
                 #:presence => true,
-     #           :format => {:with => phone_number_regex},
-      #          :on => :update
+                :format => {:with => phone_number_regex}, :allow_nil => true,
+                :on => :update
   
 end
