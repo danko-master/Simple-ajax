@@ -1,4 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
+  def edit
+    if current_user.city_id
+      @area = City.get_area_by_city(current_user.city_id)
+      @city = City.get_city(current_user.city_id)
+    end
+    render :edit    
+  end
   def update
     @user = User.find(current_user.id)
     email_changed = @user.email != params[:user][:email]
@@ -23,11 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
     @city_name = params[:city_name]
     
     @area = City.get_area_by_city(@city_id)
-    
-    puts @city_name
-    puts @area.id
-    puts @area.name
-    
+
     @user = User.find(current_user.id)
     #@user.update(:area_id => @area.id, :city_id => @city_id)
     successfully_updated = @user.update_without_password(:area_id => @area.id, :city_id => @city_id)
