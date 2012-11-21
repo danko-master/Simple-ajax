@@ -1,1 +1,4 @@
-<li>Area: <%= item.id %>, <%= link_to item.name, '#' %></li>
+
+<li>Area: <%= item.id %>, 
+	<a href="#" class="custom_city_modal" data-id="<%= item.id %>" data-name="<%= item.name %>"><%= item.name %></a></li>
+

@@ -10,7 +10,7 @@ TestApp2::Application.routes.draw do
           get "/users/edit" => "registrations#edit", :as => :edit_user_registration
           put "/users" => "registrations#update"
           put "/users/set_area_by_city" => "registrations#set_area_by_city", :as => :set_area_by_city_user_registration
-          put "/users/set_city_by_area" => "registrations#set_city_by_area", :as => :set_city_by_area_user_registration
+          #put "/users/set_city_by_area" => "registrations#set_city_by_area", :as => :set_city_by_area_user_registration
         end
 
 

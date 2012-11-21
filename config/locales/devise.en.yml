@@ -1,6 +1,11 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  form:
+    city: "Город: "
+    pgt: "Посёлок городского типа: "
+    village: "Село: "
+    area: "Район: "
   errors:
     messages:
       expired: "has expired, please request a new one"

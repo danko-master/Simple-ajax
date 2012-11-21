@@ -8,16 +8,26 @@
 
 Rake::Task['db:reset'].invoke
 
+
 type_1 = Type.create! :name => 'Capital'
 type_2 = Type.create! :name => 'City'
 type_3 = Type.create! :name => 'PGT'
 type_4 = Type.create! :name => 'Village'
+type_5 = Type.create! :name => 'Custom'
 
+#area_0 = Area.create! :name => 'NA'
 area_1 = Area.create! :name => 'Area 1 for Capital'
 area_2 = Area.create! :name => 'Area 2'
 area_3 = Area.create! :name => 'Area 3'
 area_4 = Area.create! :name => 'Area 4'
+area_5 = Area.create! :name => 'Area 5'
 
+
+city_02 = City.create! :name => 'City 0_2', :area_id => area_2.id, :type_id => type_5.id, :is_center => false
+city_03 = City.create! :name => 'City 0_3', :area_id => area_3.id, :type_id => type_5.id, :is_center => false
+city_04 = City.create! :name => 'City 0_4', :area_id => area_4.id, :type_id => type_5.id, :is_center => false
+city_05 = City.create! :name => 'City 0_5', :area_id => area_5.id, :type_id => type_5.id, :is_center => false
+#city_0 = City.create! :name => 'Utochnit naselennii punkt', :area_id => area_0.id, :type_id => type_0.id, :is_center => false
 
 city_1 = City.create! :name => 'City 1 Capital', :area_id => area_1.id, :type_id => type_1.id, :is_center => true
 
@@ -37,6 +47,10 @@ city_11 = City.create! :name => 'City 11_village', :area_id => area_4.id, :type_
 city_12 = City.create! :name => 'City 12_pgt', :area_id => area_4.id, :type_id => type_3.id, :is_center => false
 city_13 = City.create! :name => 'City 13_pgt', :area_id => area_4.id, :type_id => type_3.id, :is_center => false
 
+city_14 = City.create! :name => 'City 14_village', :area_id => area_5.id, :type_id => type_4.id, :is_center => true
+city_15 = City.create! :name => 'City 15_village', :area_id => area_5.id, :type_id => type_4.id, :is_center => false
+city_16 = City.create! :name => 'City 16_village', :area_id => area_5.id, :type_id => type_4.id, :is_center => false
+city_17 = City.create! :name => 'City 17_pgt', :area_id => area_5.id, :type_id => type_3.id, :is_center => false
 
 
 cat_1 = Category.create! :name => 'Category 1', :alias => 'cars'

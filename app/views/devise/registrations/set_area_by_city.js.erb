@@ -1,4 +1,20 @@
+switch (<%= @type_id %>) {
+        case 1 :
+          $('#message_city').html("<%= t('form.city') %>");
+          break;
+        case 2 :
+          $('#message_city').html("<%= t('form.city') %>");
+          break;
+        case 3 :
+          $('#message_city').html("<%= t('form.pgt') %>");
+          break;
+        case 4 :
+          $('#message_city').html("<%= t('form.village') %>");
+          break;
+     }
+
 $('#a_city_name').html("<%= @city_name %>")
+$('#message_area').html("<%= t('form.area') %>")
 $('#a_area_name').html("<%= @area.name %>")
 $('#a_choose_area_city').hide()
 $('#location_modal').modal('hide')

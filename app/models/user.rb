@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :remember_me, :password_confirmation,
-    :name, :phone_number, :area_id, :city_id                                                                                                                                                                                                                                                                                                
+    :name, :phone_number, :area_id, :city_id, :custom_city                                                                                                                                                                                                                                                                                                
   # attr_accessible :title, :body
   
   phone_number_regex = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/i
