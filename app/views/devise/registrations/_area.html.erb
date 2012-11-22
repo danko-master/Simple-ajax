@@ -1,4 +1,6 @@
 
-<li>Area: <%= item.id %>, 
-	<a href="#" class="custom_city_modal" data-id="<%= item.id %>" data-name="<%= item.name %>"><%= item.name %></a></li>
-
+<li>Area: <%= item.id %>,
+	<%= link_to item.name,
+            set_custom_area_user_registration_path(:area_id => item.id, :area_name => item.name),
+            :remote => true, :method => :put %>
+  

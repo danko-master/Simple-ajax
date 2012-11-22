@@ -10,6 +10,13 @@ TestApp2::Application.routes.draw do
           get "/users/edit" => "registrations#edit", :as => :edit_user_registration
           put "/users" => "registrations#update"
           put "/users/set_area_by_city" => "registrations#set_area_by_city", :as => :set_area_by_city_user_registration
+          
+          #### ajax methods for load area, city
+          put "/users/get_cities" => "registrations#get_cities", :as => :get_cities_user_registration
+          put "/users/get_areas" => "registrations#get_areas", :as => :get_areas_user_registration
+          put "/users/set_custom_area" => "registrations#set_custom_area", :as => :set_custom_area_user_registration
+          put "/users/set_custom_city" => "registrations#set_custom_city", :as => :set_custom_city_user_registration
+          
           #put "/users/set_city_by_area" => "registrations#set_city_by_area", :as => :set_city_by_area_user_registration
         end
 

@@ -4,60 +4,32 @@
 
      <span id="message_city"><%= @message_city %></span>    
      <span id="selected_city">
-      	<a href="#location_modal" id="a_city_name" role="button" data-toggle="modal">
-      		<% if @city %> 
-      		  <%= @city.name %>
-      		<% end %> 
-        </a>
+      	  <%= link_to @city_name,
+            get_cities_user_registration_path,
+            :remote => true, :method => :put,
+            :id => "a_city_name" %>
       </span><br/>
       <span id="message_area"><%= @message_area %></span>
       <span id="selected_area">
-        <a href="#location_modal" id="a_area_name" role="button" data-toggle="modal">
-        	<% if @area %> 
-      		  <%= @area.name %>
-      		<% end %>        	
-        </a>
+      	<%= link_to @area_name,
+            get_cities_user_registration_path,
+            :remote => true, :method => :put,
+            :id => "a_area_name" %>
       </span>
       
-      <% unless @city && @area %>
-        <div><a href="#location_modal" id="a_choose_area_city" role="button" data-toggle="modal">Choose Area or City</a></div>
+      <% unless (@city && @area) || (current_user.custom_city && current_user.area_id) %>
+        <%= link_to "Choose Area or City",
+          get_cities_user_registration_path,
+          :remote => true, :method => :put,
+          :id => "a_choose_area_city" %>
+        <!--<div><a href="#location_modal" id="a_choose_area_city" role="button" data-toggle="modal">Choose Area or City</a></div>-->
       <% end %>
         
 
     
     <!-- Modal -->
     <div id="location_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">My place</h3>
-      </div>
-      <div class="modal-body">
-      	<ul class="nav nav-tabs">
-      	  <li class="active" ><a href="#city" data-toggle="tab">Города</a></li>
-      	  <li><a href="#pgt" data-toggle="tab">Посёлки</a></li>
-      	  <li><a href="#village" data-toggle="tab">Сёла</a></li>
-      	</ul>
-      	<div class="tab-content">
-      		<div class="tab-pane active" id="city">
-      		  <ul>
-        	   <%= render :partial => 'city', :collection => cities, :as => :item %>  
-        	   </ul>    			
-      		</div>
-      		<div class="tab-pane" id="pgt">
-      		  <ul>
-        	   <%= render :partial => 'city', :collection => pgt, :as => :item %>  
-        	   </ul>    			
-      		</div>
-      		<div class="tab-pane" id="village">
-      		  <ul>
-        	   <%= render :partial => 'city', :collection => village, :as => :item %>  
-        	   </ul>
-        	   <a href="#custom_modal" id="a_custom_city" role="button" data-dismiss="modal" data-toggle="modal">
-        	   	Моего села нет в списке
-        	   </a>    			
-      		</div>
-      	</div>
-      </div>
+      
     </div>  
     <div id="custom_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-body">
@@ -72,7 +44,7 @@
     
     <div id="custom_city_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-body">
-        	   <%= render :partial => 'custom_city' %>    
+  
       </div> 
     </div>
     <br/><br/>

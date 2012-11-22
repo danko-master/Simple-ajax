@@ -1,14 +1,20 @@
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for resource, :url => set_custom_city_user_registration_path(:area_id => @area_id, :area_name => @area_name),
+  :html => { :id => "form_custom_city", :method => :put }, :remote => true do |f| %>
+  
   <%= devise_error_messages! %>
+	
+	Выбран район
+	<%= @area_name %>
 
-      	<div><%= f.label :custom_city %><br />
-        <%= f.text_field :custom_city %></div>
-        
-      	<div><%= f.label :area_id %><br />
-        <%= f.text_field :area_id %></div>
+	Свой город:
+        <%= f.text_field :custom_city %>
 
- <br /><br />
-
-
-  <div><%= f.submit "Update" %></div>
+  <div><%= f.submit "Ввести свой город" %></div>
+  <span class="ajax_message"></span>
 <% end %>
+
+
+
+
+
+

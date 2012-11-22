@@ -1,0 +1,32 @@
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">My place</h3>
+      </div>
+      <div class="modal-body">
+      	<ul class="nav nav-tabs">
+      	  <li class="active" ><a href="#city" data-toggle="tab">Города</a></li>
+      	  <li><a href="#pgt" data-toggle="tab">Посёлки</a></li>
+      	  <li><a href="#village" data-toggle="tab">Сёла</a></li>
+      	</ul>
+      	<div class="tab-content">
+      		<div class="tab-pane active" id="city">
+      		  <ul>
+        	   <%= render :partial => 'city', :collection => cities, :as => :item %>  
+        	   </ul>    			
+      		</div>
+      		<div class="tab-pane" id="pgt">
+      		  <ul>
+        	   <%= render :partial => 'city', :collection => pgt, :as => :item %>  
+        	   </ul>    			
+      		</div>
+      		<div class="tab-pane" id="village">
+      		  <ul>
+        	   <%= render :partial => 'city', :collection => village, :as => :item %>  
+        	   </ul>
+        	   <%= link_to "Моего села нет в списке",
+        	     get_areas_user_registration_path,
+        	     :id=>"a_custom_city",
+        	     :remote => true, :method => :put %>  			
+      		</div>
+      	</div>
+      </div>
