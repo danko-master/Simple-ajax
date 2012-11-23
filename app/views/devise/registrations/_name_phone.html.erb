@@ -1,0 +1,13 @@
+<div class="modal-body">
+<%= form_for(resource, :url => update_name_user_registration_path,
+  :html => { :id => "form_name_phone", :method => :put }, :remote => true) do |f| %>
+  
+	   <div><%= f.label :name %><br />
+        <%= f.text_field :name %></div>
+        <div><%= f.label :phone_number %><br />
+        	<div>десять цифр без 8 и +7</div>
+        <%= f.text_field :phone_number, :maxlength => 10, :validate => true %></div> 
+
+  <div><%= f.submit "Обновить" %></div>
+<% end %>
+</div>

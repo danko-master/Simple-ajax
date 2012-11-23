@@ -9,6 +9,12 @@ class RegistrationsController < Devise::RegistrationsController
     @message_area = ''
     @area_name = ''
     
+    @user_name = 'Enter name'
+    @user_phone_number = 'Set number' 
+    
+    @user_name = current_user.name if current_user.name && current_user.name.length > 1
+    @user_phone_number = current_user.phone_number if current_user.phone_number && current_user.phone_number > 1
+    
     if @area && @city
       @city_name = @city.name
       @area_name = @area.name
@@ -86,6 +92,20 @@ class RegistrationsController < Devise::RegistrationsController
     
     @user = User.find(current_user.id)
     @user.update_without_password(:area_id => @area_id, :city_id => nil, :custom_city => @custom_city)
+  end
+  def name    
+    @user = User.find(current_user.id)
+  end
+  def update_name
+    @name = params[:user][:name]
+    @phone_number = params[:user][:phone_number]
+    
+   if ((@name.length > 1) && (@phone_number.length == 10))
+      current_user.update_without_password(:name => @name, :phone_number => @phone_number)
+    else      
+      @name = 'Enter name'   
+      @phone_number = 'Enter phone number'
+    end
   end
 #  def set_city_by_area
 #    @area_id = params[:area_id]

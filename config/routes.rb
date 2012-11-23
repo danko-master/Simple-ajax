@@ -17,6 +17,9 @@ TestApp2::Application.routes.draw do
           put "/users/set_custom_area" => "registrations#set_custom_area", :as => :set_custom_area_user_registration
           put "/users/set_custom_city" => "registrations#set_custom_city", :as => :set_custom_city_user_registration
           
+          put "/users/name" => "registrations#name", :as => :name_user_registration
+          put "/users/update_name" => "registrations#update_name", :as => :update_name_user_registration
+          
           #put "/users/set_city_by_area" => "registrations#set_city_by_area", :as => :set_city_by_area_user_registration
         end
 
