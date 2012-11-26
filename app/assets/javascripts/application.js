@@ -15,3 +15,49 @@
 //= require bootstrap-modal
 //= require bootstrap-tab
 //= require_tree .
+
+
+$(document).ready(function(){
+    
+    $("#form_name_phone").validate({
+    	debug: true,
+   rules: {
+        "user[name]": { required: true, minlength: 2  },
+        "user[phone_number]": { required: true, minlength: 10, digits: true  }
+      },
+   messages: {
+   	     "user[name]": { required: 'Your username is required!!!_modal',
+           minlength: 'The minimum number of characters is 2!!!_modal'
+           },
+        "user[phone_number]": { required: 'Your phone number is required!_modal',
+           minlength: 'The minimum 10 numbers!_modal',
+           digits: "Only numbers_modal"
+            }
+   }
+    
+    });
+    
+    
+    
+    
+    $("#form_edit").validate({
+    	debug: true,
+   rules: {
+        "user[email]": { required: true, email: true  }
+      },
+   messages: {
+   	     "user[email]": { required: 'Your email is required!!!',
+           email: 'The uncorrect email!!!'
+            }
+   }
+    
+    });
+    
+    
+  });
+  
+
+//$(".load_validate").live("click", function(){
+   //$(this).after("<p>Another paragraph!</p>");
+//});
+

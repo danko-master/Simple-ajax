@@ -6,8 +6,8 @@
         <%= f.text_field :name %></div>
         <div><%= f.label :phone_number %><br />
         	<div>десять цифр без 8 и +7</div>
-        <%= f.text_field :phone_number, :maxlength => 10, :validate => true %></div> 
+        <%= f.text_field :phone_number, :maxlength => 10 %></div> 
 
-  <div><%= f.submit "Обновить" %></div>
+  <div><%= f.submit "Обновить", :class => "submit" %></div>
 <% end %>
 </div>
