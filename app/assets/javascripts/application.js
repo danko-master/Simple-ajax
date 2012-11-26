@@ -56,6 +56,22 @@ $(document).ready(function(){
     
   });
   
+  
+  
+if (history && history.pushState) {
+  $(function() {	
+     $("#products th a, #products .pagination a").live("click", function(e) {
+	   $.getScript(this.href);
+	   history.pushState(null, document.title, this.href);
+       e.preventDefault();
+      });
+
+    $(window).bind("popstate", function() {
+       $.getScript(location.href);
+     });
+  });
+}
+  
 
 //$(".load_validate").live("click", function(){
    //$(this).after("<p>Another paragraph!</p>");
