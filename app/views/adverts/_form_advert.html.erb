@@ -1,0 +1,14 @@
+Form here!
+
+<div id='div_selected_category'></div>
+
+<%= form_for @car, :url => adverts_path do |f| %>
+
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+  
+  <%= hidden_field_tag :model_id, params[:model_id] %>
+  
+
+  <div><%= f.submit "Create car!" %></div>
+<% end %>

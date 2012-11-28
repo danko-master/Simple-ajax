@@ -2,13 +2,15 @@
 <%= hidden_field_tag :sort, params[:sort] %>
 <table class="pretty">
   <tr>
-    <th style="padding-left: 10px; padding-right: 50px;"><%= sortable "name", "Имена" %></th>
-    <th><%= sortable "model_id", "My modelzzzz" %></th>
+    <th style="padding-left: 10px; padding-right: 50px;"><%= sortable "cars.name", "Имена" %></th>
+    <th style="padding-left: 10px; padding-right: 50px;"><%= sortable "model_id", "My modelzzzz" %></th>
+    <td>Type of engine</td>
   </tr>
   <% for car in @paginate_cars %>
     <tr>
       <td><%= car.name %></td>
       <td><%= car.model_id %></td>
+      <td><%= car.engine.name %></td>
     </tr>
   <% end %>
 </table>

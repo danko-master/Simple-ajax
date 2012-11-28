@@ -21,7 +21,12 @@ class AdvertsController < ApplicationController
     
   end
   def index
-    @paginate_cars = Car.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 5)
+
+    @paginate_cars = Car.joins(:engine).includes(:engine).select('cars.id, cars.name, cars.model_id, cars.engine_id, cars.created_at, cars.updated_at, engines.id, engines.name').order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 5)
+    
+    
+    # Не рационально
+    #@paginate_cars = Car.select('id, name, model_id, engine_id').order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 5)
   end
   
   def get_models_by_brand
@@ -34,11 +39,17 @@ class AdvertsController < ApplicationController
     
     @category_by_model = Category.find_by_id(params[:category_id])    
     
-    @car = Car.new
+    @car = Car.new(:model_id => params[:model_id])
+  end
+  def create
+    @car = Car.new(:name => params[:car][:name], :model_id => params[:model_id], :city_id => current_user.city_id)
+    @car.save
+     
+    redirect_to new_advert_path
   end
   def create_adv
-    @car = Car.new(:name => params[:name], :model_id => params[:model_id])
-    @car.save # Исправить
+    #@car = Car.new(:name => params[:name], :model_id => params[:model_id])
+   # @car.save # Исправить
   end
   
   
@@ -46,7 +57,7 @@ class AdvertsController < ApplicationController
     private
   
   def sort_column
-    Car.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Car.column_names.include?(params[:sort]) ? params[:sort] : "cars.name"
   end
   
   def sort_direction

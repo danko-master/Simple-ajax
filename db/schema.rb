@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121125324) do
+ActiveRecord::Schema.define(:version => 20121127114127) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20121121125324) do
     t.integer  "city_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "engine_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -47,6 +48,12 @@ ActiveRecord::Schema.define(:version => 20121121125324) do
     t.integer  "area_id"
     t.boolean  "is_center"
     t.integer  "type_id"
+  end
+
+  create_table "engines", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "models", :force => true do |t|
