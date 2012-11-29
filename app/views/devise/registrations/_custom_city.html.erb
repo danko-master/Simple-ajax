@@ -1,3 +1,4 @@
+<div class="modal-body">
 <%= form_for resource, :url => set_custom_city_user_registration_path(:area_id => @area_id, :area_name => @area_name),
   :html => { :id => "form_custom_city", :method => :put }, :remote => true do |f| %>
   
@@ -12,7 +13,7 @@
   <div><%= f.submit "Ввести свой город" %></div>
   <span class="ajax_message"></span>
 <% end %>
-
+</div>
 
 
 

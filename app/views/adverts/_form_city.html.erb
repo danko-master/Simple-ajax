@@ -1,0 +1,29 @@
+<br/><br>
+<%= current_user.name %>
+<br>
+<%= current_user.phone_number %>
+<br>
+<span id="selected_city">
+      	  <%= link_to @city_name,
+            get_cities_user_registration_path,
+            :remote => true, :method => :put,
+            :id => "a_city_name" %>
+</span>
+<div id="location_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      
+    </div>  
+    <div id="custom_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    </div> 
+    
+    <div id="custom_city_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       
+    </div>
+  
+<br>
+<span id="selected_area">
+      	<%= link_to current_user.area.name,
+            get_cities_user_registration_path,
+            :remote => true, :method => :put,
+            :id => "a_area_name" %>
+      </span>

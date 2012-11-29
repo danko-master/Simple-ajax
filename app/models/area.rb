@@ -1,5 +1,6 @@
 class Area < ActiveRecord::Base
   has_many :cities
+  has_many :users
   
   attr_accessible :name
   

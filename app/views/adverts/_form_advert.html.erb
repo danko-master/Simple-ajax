@@ -9,6 +9,7 @@ Form here!
   
   <%= hidden_field_tag :model_id, params[:model_id] %>
   
+  <%= select_tag :engine_id, options_from_collection_for_select(@engines, "id", "name",:selected=>@car.engine_id) %>
 
   <div><%= f.submit "Create car!" %></div>
 <% end %>

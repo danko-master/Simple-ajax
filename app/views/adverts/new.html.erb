@@ -1,7 +1,9 @@
 <b>New adv</b>
 <br/><br>
 <%= @models %>
-<br/><br><br/><br>
+<br/><br>
+<%= render 'form_city' %>
+<br/><br>
 <a href="#brand_modal" role="button" data-toggle="modal" id='a_brand_name'>Бренды</a>
 <div id="brand_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <ul>
@@ -28,7 +30,7 @@
 All Items
 <ul>
   <% @all_cars.each do |ac| %>
-    <li>ID: <%= ac.id %>, Name: <%= ac.name %>, Model_ID: <%= ac.model_id %>, City_ID: <%= ac.city_id %></li>
+    <li>ID: <%= ac.id %>, Name: <%= ac.name %>, Model_ID: <%= ac.model_id %>, City_ID: <%= ac.city_id %>, User_ID: <%= ac.user_id %>, created: <%= ac.created_at %>, updated: <%= ac.updated_at %>, engine: <%= ac.engine_id %></li>
   <% end %>
 </ul>
 

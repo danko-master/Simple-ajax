@@ -1,5 +1,6 @@
 class City < ActiveRecord::Base
   belongs_to :area, :select => [:id, :name]
+  has_many :users
   
   attr_accessible :name, :area_id, :type_id, :is_center
   

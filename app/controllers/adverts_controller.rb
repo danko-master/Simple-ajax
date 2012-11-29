@@ -19,14 +19,32 @@ class AdvertsController < ApplicationController
     @all_cars = Car.all
     
     
+    @city_name = current_user.city ? current_user.city.name : current_user.custom_city
+
+    
   end
   def index
+    
+    @my_cars = Car.all_items_by_user(current_user.id)
 
     @paginate_cars = Car.joins(:engine).includes(:engine).select('cars.id, cars.name, cars.model_id, cars.engine_id, cars.created_at, cars.updated_at, engines.id, engines.name').order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 5)
     
     
     # Не рационально
     #@paginate_cars = Car.select('id, name, model_id, engine_id').order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 5)
+  end
+  
+  def edit
+    @engines = Engine.all
+    @car = Car.find(params[:id])
+  end
+  
+  def update
+    @car = Car.find(params[:id])
+    
+    if @user.save
+      redirect_to root_path
+    end
   end
   
   def get_models_by_brand
@@ -39,10 +57,16 @@ class AdvertsController < ApplicationController
     
     @category_by_model = Category.find_by_id(params[:category_id])    
     
-    @car = Car.new(:model_id => params[:model_id])
+    @car = Car.new(:model_id => params[:model_id])    
+    
+    @engines = Engine.all
   end
-  def create
-    @car = Car.new(:name => params[:car][:name], :model_id => params[:model_id], :city_id => current_user.city_id)
+  def create   
+    @car = Car.new(:name => params[:car][:name],
+     :model_id => params[:model_id], 
+     :engine_id => params[:engine_id], 
+     :city_id => current_user.city_id, :area_id => current_user.area_id,
+     :user_id => current_user.id)
     @car.save
      
     redirect_to new_advert_path
