@@ -35,14 +35,17 @@ class AdvertsController < ApplicationController
   end
   
   def edit
-    @engines = Engine.all
-    @car = Car.find(params[:id])
+      @engines = Engine.all
+      @car = Car.find(params[:id])
+    redirect_to root_path if @car.user_id != current_user.id
   end
   
   def update
     @car = Car.find(params[:id])
     
-    if @user.save
+    if @car.update_attributes(:name => params[:car][:name],
+     :engine_id => params[:engine_id], 
+     :city_id => current_user.city_id, :area_id => current_user.area_id)
       redirect_to root_path
     end
   end
