@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :city
   belongs_to :area
+  has_many :cars
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

@@ -1,9 +1,6 @@
-<%= form_for @car, :url => advert_path(@car) do |f| %>
-
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
-  
-  <%= select_tag :engine_id, options_from_collection_for_select(@engines, "id", "name",:selected=>@car.engine_id) %>
-
-  <div><%= f.submit "Update car!" %></div>
+<% if @car.user_id == current_user.id %>
+  <%= render "form_edit" %>
+<% else %>
+  <%= render "not_author" %>
 <% end %>
+

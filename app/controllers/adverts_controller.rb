@@ -34,10 +34,10 @@ class AdvertsController < ApplicationController
     #@paginate_cars = Car.select('id, name, model_id, engine_id').order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 5)
   end
   
-  def edit
+  def edit   
       @engines = Engine.all
       @car = Car.find(params[:id])
-    redirect_to root_path if @car.user_id != current_user.id
+      #render "not_author" unless @car
   end
   
   def update
