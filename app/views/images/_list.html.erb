@@ -1,0 +1,9 @@
+<ul id="ul_images" data-update-url="<%= sort_images_url %>">  
+  <% @images.each do |image| %>
+    <%= content_tag_for :li, image, :class => 'ui-state-default' do %> 
+     <%= link_to image_tag(image.image.url(:small)), image.image.url(:original),:class => 'group1' %>    
+     
+    <% end %>
+  <% end %>
+</ul>
+<div class="div-clear">&nbsp;</div>

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   belongs_to :city
   belongs_to :area
   has_many :cars
@@ -15,6 +16,9 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   phone_number_regex = /^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/i
+  
+  #validates_presence_of :name
+  #validates_uniqueness_of :name, :email, :case_sensitive => false
   
   validates :phone_number,
                 #:presence => true,

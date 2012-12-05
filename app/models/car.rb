@@ -2,6 +2,8 @@ class Car < ActiveRecord::Base
   belongs_to :engine
   belongs_to :user
   
+  has_many :images, :dependent => :delete_all
+  
   attr_accessible :name, :model_id, :city_id, :area_id, :engine_id, :user_id
   
   validates :name, :presence => true

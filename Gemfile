@@ -10,7 +10,13 @@ gem 'sqlite3'
 gem 'jquery-rails'
 
 gem "devise", "~> 2.1.2"
+gem "cancan", "~> 1.6.8"
+gem "rolify", "~> 3.2.0"
+# https://groups.google.com/forum/#!topic/ror2ru/oiOi4rvooME
+# http://railsapps.github.com/tutorials-rails-bootstrap-devise-cancan.html
 
+gem "paperclip", "~> 3.3.1"
+gem "haml", "~> 3.1.7"
 
 # Gems used only for assets and not required
 # in production environments by default.

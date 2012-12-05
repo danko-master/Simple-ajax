@@ -53,9 +53,24 @@ city_16 = City.create! :name => 'City 16_village', :area_id => area_5.id, :type_
 city_17 = City.create! :name => 'City 17_pgt', :area_id => area_5.id, :type_id => type_3.id, :is_center => false
 
 
+admin_user = User.create! :name => 'Administrator', :email => '111@example.com', :password => '112233', :password_confirmation => '112233', :phone_number => 1114567890, :area_id => 1, :city_id => 1
+
+#admin_role = Role.create! :name => 'admin', :created_at => Time.now, :updated_at => Time.now
+
+Role.create([{:name => 'admin'},{:name => 'manager'},{:name => 'partner'},:name => 'citizen'], :without_protection => true)
+admin_user.add_role :admin
+
+#Role.create! :name => 'partner', :created_at => Time.now, :updated_at => Time.now, :without_protection => true)
+#Role.create! :name => 'citizen', :created_at => Time.now, :updated_at => Time.now, :without_protection => true)
+
+#sql = ActiveRecord::Base.connection();
+#sql.execute("INSERT INTO 'users_roles'('user_id', 'role_id') values('#{admin_user.id}', '#{admin_role.id}')")
+
+
 cat_1 = Category.create! :name => 'Category 1', :alias => 'cars'
 cat_2 = Category.create! :name => 'Category 2', :alias => 'trucks'
 cat_3 = Category.create! :name => 'Category 3', :alias => 'buses'
+
 
 
 brand_1 = Brand.create! :name => 'Brand 1'

@@ -1,0 +1,11 @@
+Car_id <%= @car.id %>
+
+<%= form_tag({:action => 'upload_image', :car_id => @car.id}, :multipart => true) do %>
+    <label for="upload_file">Uploader!</label><br/>
+    <%= file_field 'upload', 'image' %>&nbsp;<%= submit_tag "upload!" %><br/>
+<% end %>
+
+
+<div id="image_list">  
+  <%= render 'list'  %> 
+</div>

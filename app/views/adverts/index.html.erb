@@ -3,7 +3,7 @@
 My Items
 <ul>
   <% @my_cars.each do |ac| %>
-    <li>ID: <%= ac.id %>, Name: <%= link_to ac.name, edit_advert_path(ac.id) %>, Model_ID: <%= ac.model_id %>, City_ID: <%= ac.city_id %>, User_ID: <%= ac.user_id %>, created: <%= ac.created_at %>, updated: <%= ac.updated_at %></li>
+    <li>ID: <%= ac.id %> , <%= link_to "Images", images_path(:car_id => ac.id) %>, Name: <%= link_to ac.name, edit_advert_path(ac.id) %>, Model_ID: <%= ac.model_id %>, City_ID: <%= ac.city_id %>, User_ID: <%= ac.user_id %>, created: <%= ac.created_at %>, updated: <%= ac.updated_at %></li>
   <% end %>
 </ul>
 <br/><br>

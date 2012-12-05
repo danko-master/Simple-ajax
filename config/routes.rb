@@ -28,6 +28,12 @@ TestApp2::Application.routes.draw do
     collection { post :get_models_by_brand, :set_model, :create_adv }
   end
   
+  resources :images do
+      collection { post :upload_image, :sort }
+  end
+  
+  resources :humans
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
