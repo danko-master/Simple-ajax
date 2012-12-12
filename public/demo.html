@@ -3,19 +3,63 @@
   <script src="/assets/jquery.js"></script>
   <script type="text/javascript" src="/assets/jquery.validate.js"></script>
 
+
   <script>
   $(document).ready(function(){
     $("#commentForm").validate();
+    
+    
+    
+    $('#myNum').bind('blur input change', autoFill);
+    //$('#myNum').focus(autoFill); 
+    
+
+    $('#phone').bind('blur input change', autoPhone);
+   
+    num1 = 9151230099
+    
+    $('num_test').load.val() = num1
+  
   });
+  
+  function autoFill(){
+  	   val = this.value;
+  	   val = val.replace(/[^\d,]/g, '');
+       val = val.replace(/\s/g,"");
+       var res = val.replace(/(\S)(?=(\S\S\S)+(?!\S))/g, "$1 ");
+       this.value = res;
+  }  
+  
+    function autoPhone(){
+  	   val = this.value;
+  	   val = val.replace(/[^\d,]/g, '');
+       var res = val.replace(/\s/g,"");
+       this.value = res;
+  }
+
+  
   </script>
+  
+  
+  
+
+  
   
 </head>
 <body>
-  
+	
+ <input type="text" id="num_test"   /><br/> 
 
  <form id="commentForm" method="post">
 
+
    <legend>A simple comment form with submit validation and default messages</legend>
+   
+   
+   <p>
+   	Pr  <input type="text" id="myNum"  name="myNum" /><br/>
+    Phone <input type="text" id="phone" name="phone" minlength="10" maxlength="10" class="required number" />
+   </p>
    <p>
      <label for="cname">Name</label>
      <em>*</em><input id="cname" name="name" size="25" class="required" minlength="2" />

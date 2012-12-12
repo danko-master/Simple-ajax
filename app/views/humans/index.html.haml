@@ -2,5 +2,5 @@
   = render :partial => 'index_items', :collection => @users, :as => :index_item
   
 
-=if current_user.has_role? :admin
+-if current_user.has_role? :admin
   = link_to current_user.name, '#'
