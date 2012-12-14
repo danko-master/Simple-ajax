@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 
 gem 'jquery-rails'
+gem "jquery-ui-rails", "~> 2.0.2"
 
 gem "devise", "~> 2.1.2"
 gem "cancan", "~> 1.6.8"
@@ -17,6 +18,7 @@ gem "rolify", "~> 3.2.0"
 
 gem "paperclip", "~> 3.3.1"
 gem "haml", "~> 3.1.7"
+
 
 # Gems used only for assets and not required
 # in production environments by default.

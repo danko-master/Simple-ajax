@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.slider
 //= require bootstrap-modal
 //= require bootstrap-tab
 //= require_tree .
@@ -19,13 +20,62 @@
 
 $(document).ready(function(){
     
+    $("#commentForm2").validate({
+    	highlight: function(label) {
+	    	$(label).closest('.control-group').addClass('error');
+	    },
+	    success: function(label) {
+	    	label
+	    		.text('OK!').addClass('valid')
+	    		.closest('.control-group').addClass('success');
+	    }
+    });
+
+    $('#num2').bind('blur input change keyup', autoFill2);
+    
+    
+    
+      
+  function autoFill2(){
+     val = this.value;
+     val = val.replace(/[^\d,]/g, '');
+     val = val.replace(/\s/g,"");
+       
+     res = val.replace(/(\s)+/g, '').replace(/(\d{1,3})(?=(?:\d{3})+$)/g, '$1 ');
+     this.value = res;
+  } 
+  
+  
+  
+  
+  $(function() {
+        var select = $( "#minbeds" );
+        var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
+            min: 1970,
+            max: 2012,
+            //step: 50,
+            range: "min",
+            value: select.value,
+            slide: function( event, ui ) {
+            	$( "#minbeds" ).val( ui.value );
+                //select.value = ui.value;
+                //alert($( "#minbeds" ).value);
+               // alert(ui.value);
+            }
+        });
+        $( "#minbeds" ).change(function() {
+            slider.slider( "value", this.value );
+        });
+    });
+    
+    
     $("#form_name_phone").validate({
     	debug: true,
-   rules: {
+     rules: {
         "user[name]": { required: true, minlength: 2  },
         "user[phone_number]": { required: true, minlength: 10, digits: true  }
       },
-   messages: {
+     messages: {
    	     "user[name]": { required: 'Your username is required!!!_modal',
            minlength: 'The minimum number of characters is 2!!!_modal'
            },

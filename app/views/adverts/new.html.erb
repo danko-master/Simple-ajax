@@ -1,3 +1,31 @@
+Form<br/>
+
+
+<form id="reservation">
+    <label for="minbeds">Minimum number of beds</label>
+    <input name="minbeds" id="minbeds">
+</form>
+
+<br><br><br>
+
+ <form id="commentForm2" method="post">
+ 	<p>
+ 		<label for="years">Year: </label>
+ 	  <input id="years">
+ 	</p>
+ 	<p>
+ 		 <label class="control-label" for="num2">Your Name (min 5 char)</label>
+  </p>
+  <p>
+    <input id="num2" class="required" minlength="5" />
+  </p>
+  <p>
+     <input class="submit" type="submit" value="Submit"/>
+  </p>
+ </form>
+
+
+
 <b>New adv</b>
 <br/><br>
 <%= @models %>
