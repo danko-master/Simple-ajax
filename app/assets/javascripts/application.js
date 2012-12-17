@@ -58,6 +58,7 @@ $(document).ready(function(){
         var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
             min: 1970,
             max: new Date().getFullYear(),
+            animate: 'fast',
             //step: 50,
             range: "min",
             value: select.attr("value"),
