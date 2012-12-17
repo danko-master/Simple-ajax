@@ -73,6 +73,7 @@ $(document).ready(function(){
         
         $( ".ui-slider-handle" ).ready(function() {
         	$(".ui-slider-handle").css({width: "33px", 'font-size': "12px"});
+        	$( ".ui-slider-handle" ).removeClass('ui-corner-all');
         	$( ".ui-slider-handle" ).text(select.attr("value"));
         })
         
