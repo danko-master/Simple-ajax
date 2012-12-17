@@ -50,22 +50,41 @@ $(document).ready(function(){
   
   $(function() {
         var select = $( "#minbeds" );
+
+        if (select.attr("value") == '') {
+        		select.val( new Date().getFullYear() - 3)
+        	}
+        
         var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
             min: 1970,
-            max: 2012,
+            max: new Date().getFullYear(),
             //step: 50,
             range: "min",
-            value: select.value,
+            value: select.attr("value"),
+            //value: select.value,
             slide: function( event, ui ) {
             	$( "#minbeds" ).val( ui.value );
+            	$( ".ui-slider-handle" ).text(ui.value);
                 //select.value = ui.value;
                 //alert($( "#minbeds" ).value);
                // alert(ui.value);
             }
-        });
+        });       
+        
+        $( ".ui-slider-handle" ).ready(function() {
+        	$(".ui-slider-handle").css({width: "33px", 'font-size': "12px"});
+        	$( ".ui-slider-handle" ).text(select.attr("value"));
+        })
+        
+        
         $( "#minbeds" ).change(function() {
-            slider.slider( "value", this.value );
+            slider.slider( "value", this.value );   
+            $( ".ui-slider-handle" ).text(this.value);         
         });
+        
+        
+
+        
     });
     
     
