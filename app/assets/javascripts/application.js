@@ -15,10 +15,12 @@
 //= require jquery.ui.slider
 //= require bootstrap-modal
 //= require bootstrap-tab
+//= require bootstrap-button
 //= require_tree .
 
 
 $(document).ready(function(){
+	
     
     $("#commentForm2").validate({
     	highlight: function(label) {
@@ -49,13 +51,19 @@ $(document).ready(function(){
   
   
   $(function() {
-        var select = $( "#minbeds" );
+  	
+  	
+  	/**** bootstrap radio http://dan.doezema.com/2012/03/twitter-bootstrap-radio-button-form-inputs/ *****/
+  	
+
+  	/**** slider ****/
+        var select = $( "#car_name" );
 
         if (select.attr("value") == '') {
         		select.val( new Date().getFullYear() - 3)
         	}
         
-        var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
+        var slider = $( "#slider" ).slider({
             min: 1970,
             max: new Date().getFullYear(),
             animate: 'fast',
@@ -64,7 +72,7 @@ $(document).ready(function(){
             value: select.attr("value"),
             //value: select.value,
             slide: function( event, ui ) {
-            	$( "#minbeds" ).val( ui.value );
+            	$( "#car_name" ).val( ui.value );
             	$( ".ui-slider-handle" ).text(ui.value);
                 //select.value = ui.value;
                 //alert($( "#minbeds" ).value);
@@ -73,19 +81,17 @@ $(document).ready(function(){
         });       
         
         $( ".ui-slider-handle" ).ready(function() {
-        	$(".ui-slider-handle").css({width: "33px", 'font-size': "12px"});
         	$( ".ui-slider-handle" ).removeClass('ui-corner-all');
         	$( ".ui-slider-handle" ).text(select.attr("value"));
         })
         
         
-        $( "#minbeds" ).change(function() {
+        $( "#car_name" ).change(function() {
             slider.slider( "value", this.value );   
             $( ".ui-slider-handle" ).text(this.value);         
-        });
+        }); 
         
-        
-
+   /*** slider end ***/
         
     });
     

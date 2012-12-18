@@ -21,7 +21,10 @@ class AdvertsController < ApplicationController
     
     @city_name = current_user.city ? current_user.city.name : current_user.custom_city
 
-    
+    #@car = Car.new(:engine_id => 4)
+    @car = Car.new
+    @engines1 = Engine.all
+    @engines2 = Engine.where(:id => 1..2)
   end
   def index
     
@@ -79,6 +82,11 @@ class AdvertsController < ApplicationController
    # @car.save # Исправить
   end
   
+  
+  def test_post
+    @name = params[:car][:name]
+    @engine_id = params[:car][:input_engine_id]
+  end
   
   
     private

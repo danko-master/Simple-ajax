@@ -1,10 +1,21 @@
 Form<br/>
 
-
-<form id="reservation">
-    <label for="minbeds">Minimum number of beds</label>
-    <input name="minbeds" id="minbeds">
-</form>
+<%= form_for @car, :url => test_post_adverts_path, :method => "post" do |f| %>
+    <label>Minimum number of beds</label>
+    <%= f.text_field :name %>
+    <div id='slider'></div>
+    <br><br>
+    <div class="btn-group" data-toggle="buttons-radio">
+      <% @engines1.each do |e| %>
+        <button type="button" class="btn <%= @car.engine_id == "#{e.id}".to_i ? 'active' : '' %>" data-toggle="button" onclick="javascript:document.getElementById('car_input_engine_id').value='<%= "#{e.id}" %>'">
+        	<%= "#{e.name}" %>
+        </button>
+      <% end %>
+      <input type="hidden" id="car_input_engine_id" name="car[input_engine_id]" value="<%= @car.engine_id %>" />
+    </div>
+    <br><br>
+    <%= f.submit "Test Post", :class => "btn btn-inverse" %>
+<% end %>
 
 <br><br><br>
 

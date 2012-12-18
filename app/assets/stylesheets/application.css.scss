@@ -16,7 +16,33 @@
 
 @import "bootstrap";
 
+
 #slider {
   width: 450px;
 }
 
+.ui-slider-horizontal {
+   a.ui-slider-handle {
+     background: #33cc33 !important;
+     width: 36px !important;
+     height: 18px !important;
+     font-size: 12px !important;
+     font-weight: bold !important;
+   }  
+   
+   a:hover {
+     text-decoration: none !important;
+   }
+}
+
+
+/* как вирант bootstrap radio */
+div.btn-group[data-toggle=buttons-radio] input[type=radio] {
+  display:    block;
+  position:   absolute;
+  top:        0;
+  left:       0;
+  width:      100%;
+  height:     100%;
+  //opacity:    0.0;
+}
