@@ -1,18 +1,30 @@
+Price<br/>
+<span class="format_long_nums"><%= @price_test %></span>
+<br/>
+<br/>
+<span class="format_long_nums"><%= @price_test2 %></span>
+<br/>
+<br/>
+<span class="format_long_nums"><%= @price_test3 %></span>
+<br/>
+
 Form<br/>
 
 <%= form_for @car, :url => test_post_adverts_path, :method => "post" do |f| %>
+<br><br>
+
     <label>Minimum number of beds</label>
     <%= f.text_field :name %>
     <div id='slider'></div>
     <br><br>
-    <div class="btn-group" data-toggle="buttons-radio">
-      <% @engines1.each do |e| %>
-        <button type="button" class="btn <%= @car.engine_id == "#{e.id}".to_i ? 'active' : '' %>" data-toggle="button" onclick="javascript:document.getElementById('car_input_engine_id').value='<%= "#{e.id}" %>'">
-        	<%= "#{e.name}" %>
-        </button>
-      <% end %>
-      <input type="hidden" id="car_input_engine_id" name="car[input_engine_id]" value="<%= @car.engine_id %>" />
-    </div>
+       <%= radio_bootstrap_tag(@engines1, @car.engine_id, 'engine') %>
+    <br><br>
+       <%= radio_bootstrap_tag(@engines2, @car.engine_id, 'engine2') %>
+    <br><br>
+       <%= checkbox_bootstrap_tag(@engines1, 'engine3') %>
+    <br><br>
+    <br><br>
+       <%= checkbox_bootstrap_tag(@engines2, 'engine4') %>
     <br><br>
     <%= f.submit "Test Post", :class => "btn btn-inverse" %>
 <% end %>

@@ -19,9 +19,59 @@
 //= require_tree .
 
 
+
 $(document).ready(function(){
 	
+	$('.format_long_nums').each(function(){
+        $(this).text($(this).text().replace(/(\d{1,3})(?=(?:\d{3})+$)/g, '$1 '))
+    })
     
+        
+    
+    $('.add_checkbox_value').click(function(){
+    	
+    	val = ""
+    	flag = false
+    	    	    	   	
+    	input_id = $(this).data('toggle')    	
+        input_id_str = "#" + input_id + ""
+        
+        current_val = $(input_id_str).val();    	
+    	current_val_arr = current_val.split(';');  
+    	
+    	sel_val = $(this).val();
+    	sel_val_str = sel_val+";"
+    	//val += sel_val + ";"
+    	
+    	for (var i=0,len=current_val_arr.length;i<len;i++) {
+    		if(current_val_arr[i] == sel_val)
+    		{
+    			flag = true;
+    		}          
+        }                   
+    	
+    	   	
+        
+        div_parent = $(this).parent();       
+        
+        div_parent.children(".active").each(function(){
+        	val += $(this).val() + ";"
+        })
+        
+        
+        if(flag){
+    		val = current_val.replace(sel_val_str, "");
+    	}
+    	else{
+    		val += sel_val + ";"
+    	}
+                
+           	
+    	$(input_id_str).val(val);
+    })
+
+   
+	
     $("#commentForm2").validate({
     	highlight: function(label) {
 	    	$(label).closest('.control-group').addClass('error');

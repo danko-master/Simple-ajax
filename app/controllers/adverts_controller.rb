@@ -25,6 +25,11 @@ class AdvertsController < ApplicationController
     @car = Car.new
     @engines1 = Engine.all
     @engines2 = Engine.where(:id => 1..2)
+    
+    
+    @price_test = 2500000
+    @price_test2 = 150000
+    @price_test3 = 4856999000
   end
   def index
     
@@ -86,6 +91,12 @@ class AdvertsController < ApplicationController
   def test_post
     @name = params[:car][:name]
     @engine_id = params[:car][:input_engine_id]
+    @engines_3 = params[:car][:input3_engine3_id]
+    @engines_3_arr = @engines_3.split(";")
+    
+    @engines_3_arr.each do |el|
+      el = el.to_i
+    end
   end
   
   
