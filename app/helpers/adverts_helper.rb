@@ -57,7 +57,7 @@ module AdvertsHelper
           content_tag :button, 
             :type => :button,
             :data => {:toggle => input_id},
-            :value => "easdsads",
+            :value => e.id,
             :class => "btn btn-primary add_checkbox_value" do
               e.name       
           end

@@ -94,13 +94,15 @@ class AdvertsController < ApplicationController
     @engines_3 = params[:car][:input3_engine3_id]
     @engines_3_arr = @engines_3.split(";")
     
-    @engines_3_arr.each do |el|
-      el = el.to_i
-    end
+    @engines_3_arr = arr_to_i(@engines_3_arr)
   end
   
   
     private
+  
+  def arr_to_i(arr)
+    arr.collect{|i| i.to_i}
+  end
   
   def sort_column
     Car.column_names.include?(params[:sort]) ? params[:sort] : "cars.name"
