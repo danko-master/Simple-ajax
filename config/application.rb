@@ -14,6 +14,7 @@ module TestApp2
   class Application < Rails::Application
     
     config.autoload_paths << File.join(config.root, "lib")
+    #Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

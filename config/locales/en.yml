@@ -3,3 +3,16 @@
 
 en:
   hello: "Hello world"
+ 
+  form:
+    name: "Car name"
+    year: "Car year"
+    price: "Car price"
+    capacity: "Car capacity"
+    suspension: "Car suspension"
+    gear_id: "Gears"
+    drive_id: "Drive"
+    seats: "Car seats"
+    no_method: "Wrong action"
+    
+    

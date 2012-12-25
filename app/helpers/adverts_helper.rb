@@ -1,4 +1,6 @@
 module AdvertsHelper
+  
+  # Проверка вызова данных из БД в хелпере
   def cities
     City.get_capital_and_city
   end
@@ -12,6 +14,8 @@ module AdvertsHelper
     Area.get_areas
   end
   
+  
+  # Кастомные контролы, для отображения бутстраповских радиокнопок и чекбоксов
   
   #def checkbox_bootstrap_tag(engines, car_engine_id)   
   #  content_tag :div, :class=>"btn-group", "data-toggle"=>"buttons-radio" do
