@@ -2,6 +2,17 @@ class AdvertsController < ApplicationController
   
   helper_method :sort_column, :sort_direction
   
+  def search
+    
+
+   
+    @search = Car.search :conditions => { :model_id => params[:model_id]   } if params[:model_id]
+      
+    @search = @search.by_engine_id(params[:engine_id]) if params[:engine_id].to_i > 0
+    @search = @search.by_city_id(params[:city_id]) if params[:city_id].to_i > 0
+  end
+  
+  
   def new
     @all_brands = Brand.all
     #@models_by_brand = 

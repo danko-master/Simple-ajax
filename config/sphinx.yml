@@ -1,0 +1,15 @@
+development:
+  #port: 9312
+  #config_file: "RAILS_ROOT/config/development.sphinx.conf"
+  #searchd_log_file: "RAILS_ROOT/log/searchd.log"
+  #query_log_file: "RAILS_ROOT/log/searchd.query.log"
+  #pid_file: "RAILS_ROOT/log/searchd.development.pid"
+  
+  #bin_path: '/usr/local/bin' # 4linux
+  bin_path: 'C:\sphinx\bin' # 4win
+  searchd_binary_name: 'searchd'
+  indexer_binary_name: 'indexer'
+test:
+  port: 9313
+production:
+  port: 9312

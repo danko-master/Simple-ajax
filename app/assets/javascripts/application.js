@@ -192,6 +192,15 @@ if (history && history.pushState) {
 	   history.pushState(null, document.title, this.href);
        e.preventDefault();
       });
+    
+    // сортировка вне таблицы
+    $('.div-paginate-top a').live("click", function(e) {
+	   $.getScript(this.href);
+	   history.pushState(null, document.title, this.href);
+       e.preventDefault();
+      });
+    // конец сортировки с помощью div-a  
+    
 
     $(window).bind("popstate", function() {
        $.getScript(location.href);

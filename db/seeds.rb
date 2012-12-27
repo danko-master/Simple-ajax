@@ -106,38 +106,38 @@ eng_3 = Engine.create :name => 'Hybrid'
 eng_4 = Engine.create :name => 'Electro'
 
 
-Car.create :name => 'Car 11 1', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 2', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 3', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id
-Car.create :name => 'Car 12 1', :model_id => model_12.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 12 2', :model_id => model_12.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 4', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_3.id
-Car.create :name => 'Car 11 5', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_3.id
-Car.create :name => 'Car 11 6', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_3.id
-Car.create :name => 'Car 11 7', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_1.id
-Car.create :name => 'Car 13 1', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 13 2', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 13 3', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_4.id
-Car.create :name => 'Car 13 4', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 31 1', :model_id => model_31.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 31 2', :model_id => model_31.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 8', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_4.id
-Car.create :name => 'Car 11 9', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 10', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 11', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 12', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_4.id
-Car.create :name => 'Car 11 13', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 14', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 15', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 16', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 17', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 18', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 19', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_1.id
-Car.create :name => 'Car 11 20', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 21', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id
-Car.create :name => 'Car 11 22', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_3.id
-Car.create :name => 'Car 11 23', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_3.id
-Car.create :name => 'Car 11 24', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_1.id
+Car.create :name => 'Car 11 1', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 100000
+Car.create :name => 'Car 11 2', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id, :mileage => 150000, :user_id => admin_user.id
+Car.create :name => 'Car 11 3', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id, :mileage => 200000, :user_id => admin_user.id
+Car.create :name => 'Car 12 1', :model_id => model_12.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 340000, :user_id => admin_user.id
+Car.create :name => 'Car 12 2', :model_id => model_12.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 6000, :user_id => admin_user.id
+Car.create :name => 'Car 11 4', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_3.id, :mileage => 80000
+Car.create :name => 'Car 11 5', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_3.id, :mileage => 65000, :user_id => admin_user.id
+Car.create :name => 'Car 11 6', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_3.id, :mileage => 90000, :user_id => admin_user.id
+Car.create :name => 'Car 11 7', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_1.id, :mileage => 4000
+Car.create :name => 'Car 13 1', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 500000, :user_id => admin_user.id
+Car.create :name => 'Car 13 2', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 45000, :user_id => admin_user.id
+Car.create :name => 'Car 13 3', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_4.id, :mileage => 1000, :user_id => admin_user.id
+Car.create :name => 'Car 13 4', :model_id => model_13.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 97000, :user_id => admin_user.id
+Car.create :name => 'Car 31 1', :model_id => model_31.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 24000, :user_id => admin_user.id
+Car.create :name => 'Car 31 2', :model_id => model_31.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 58000
+Car.create :name => 'Car 11 8', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_4.id, :mileage => 145000, :user_id => admin_user.id
+Car.create :name => 'Car 11 9', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_1.id, :mileage => 234000
+Car.create :name => 'Car 11 10', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_1.id, :mileage => 340000, :user_id => admin_user.id
+Car.create :name => 'Car 11 11', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_1.id, :mileage => 138000, :user_id => admin_user.id
+Car.create :name => 'Car 11 12', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_4.id, :mileage => 30000, :user_id => admin_user.id
+Car.create :name => 'Car 11 13', :model_id => model_11.id, :city_id => city_2.id, :engine_id => eng_1.id, :mileage => 4000
+Car.create :name => 'Car 11 14', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_2.id, :mileage => 8000, :user_id => admin_user.id
+Car.create :name => 'Car 11 15', :model_id => model_11.id, :city_id => city_3.id, :engine_id => eng_2.id, :mileage => 43000, :user_id => admin_user.id
+Car.create :name => 'Car 11 16', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id, :mileage => 22000, :user_id => admin_user.id
+Car.create :name => 'Car 11 17', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id, :mileage => 79000
+Car.create :name => 'Car 11 18', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id, :mileage => 123000, :user_id => admin_user.id
+Car.create :name => 'Car 11 19', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 500, :user_id => admin_user.id
+Car.create :name => 'Car 11 20', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id, :mileage => 43000
+Car.create :name => 'Car 11 21', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_2.id, :mileage => 20000, :user_id => admin_user.id
+Car.create :name => 'Car 11 22', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_3.id, :mileage => 170000, :user_id => admin_user.id
+Car.create :name => 'Car 11 23', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_3.id, :mileage => 115000
+Car.create :name => 'Car 11 24', :model_id => model_11.id, :city_id => city_1.id, :engine_id => eng_1.id, :mileage => 96000, :user_id => admin_user.id
 
 
 

@@ -1,5 +1,8 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
+<div class='div-paginate-top'>
+	Sortable: <%= sortable "cars.name", "By name" %>, <%= sortable "model_id", "By model" %>, <%= sortable "mileage", "By mileage" %>
+</div>
 <table class="pretty">
   <tr>
     <th style="padding-left: 10px; padding-right: 50px;"><%= sortable "cars.name", "Имена" %></th>
@@ -8,7 +11,7 @@
   </tr>
   <% for car in @paginate_cars %>
     <tr>
-      <td><%= car.name %></td>
+      <td><%= car.name %><br><%= car.mileage %><br></td>
       <td><%= car.model_id %></td>
       <td><%= car.engine.name %></td>
     </tr>

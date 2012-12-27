@@ -5,7 +5,8 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
+gem "pg", "~> 0.14.1"
 
 gem 'jquery-rails'
 gem "jquery-ui-rails", "~> 2.0.2"
@@ -18,6 +19,9 @@ gem "rolify", "~> 3.2.0"
 
 gem "paperclip", "~> 3.3.1"
 gem "haml", "~> 3.1.7"
+
+# Поиск http://justlest.info/2010/12/thinking-sphinx-runit
+gem "thinking-sphinx", "~> 2.0.13"
 
 
 # Gems used only for assets and not required

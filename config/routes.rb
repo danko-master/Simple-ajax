@@ -25,7 +25,10 @@ TestApp2::Application.routes.draw do
 
 
   resources :adverts do
-    collection { post :get_models_by_brand, :set_model, :create_adv, :test_post }
+    collection do
+       get :search
+       post :get_models_by_brand, :set_model, :create_adv, :test_post
+    end
   end
   
   resources :images do

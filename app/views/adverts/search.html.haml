@@ -1,0 +1,21 @@
+%b
+  Search car
+  
+
+= form_tag search_adverts_path, :method => :get, :id => 'admin_quick_filter' do
+  %label
+    = t('form.mileage')
+  = text_field_tag :min_mileage, params[:min_mileage]
+  = text_field_tag :max_mileage, params[:max_mileage]
+  %br
+  = select_tag :model_id, options_for_select(Model.all.collect{|c| [c.name, c.id]} , params[:model_id]), :include_blank => true
+  %br
+  = select_tag :engine_id, options_for_select(Engine.all.collect{|c| [c.name, c.id]} , params[:engine_id]), :include_blank => true
+  %br
+  = select_tag :city_id, options_for_select(City.all.collect{|c| [c.name, c.id]} , params[:city_id]), :include_blank => true
+  %br
+  %br
+  = submit_tag t('form.search')
+  
+
+= render "search_result"
