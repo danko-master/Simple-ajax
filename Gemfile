@@ -24,6 +24,9 @@ gem "haml", "~> 3.1.7"
 gem "thinking-sphinx", "~> 2.0.13"
 
 
+gem "rails_best_practices"
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

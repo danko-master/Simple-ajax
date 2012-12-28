@@ -3,13 +3,24 @@ class AdvertsController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def search
+    #Подразумевается, что пользователь всегда наичинает искать, зная модель, поэтому ставим 1 по дефолту
     
-
-   
-    @search = Car.search :conditions => { :model_id => params[:model_id]   } if params[:model_id]
+    min_mileage = params[:min_mileage]
+    max_mileage = params[:max_mileage]
+    
+    min_p ||= 0
+    max_p ||= 99999999
+    
+    model_id = params[:model_id]
+    
+    model_id ||= 1
+    
+    @search = Car.by_model_id(params[:model_id]) #if params[:model_id]
       
     @search = @search.by_engine_id(params[:engine_id]) if params[:engine_id].to_i > 0
     @search = @search.by_city_id(params[:city_id]) if params[:city_id].to_i > 0
+    
+    @search = @search.with_mileage(min_mileage, max_mileage) if (params[:min_mileage] || params[:max_mileage])
   end
   
   

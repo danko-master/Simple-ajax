@@ -12,12 +12,17 @@ class Car < ActiveRecord::Base
   # Sphinx
   define_index do
     indexes name
-    indexes model_id
-    indexes city_id
-    indexes area_id
-    indexes engine_id
-    indexes user_id
-    indexes mileage
+    
+    has model_id, city_id, engine_id, mileage
+    #indexes model_id
+    #indexes city_id
+    #indexes area_id
+    #indexes engine_id
+    #indexes user_id
+    #indexes mileage
+    
+    
+    #has :mileage
     #indexes :name, :sortable => true
     #indexes comments.content, :as => :comment_content
     #indexes [author.first_name, author.last_name], :as => :author_name
@@ -26,13 +31,17 @@ class Car < ActiveRecord::Base
   end
   
   sphinx_scope(:by_model_id) { |id|
-    {:conditions => {:model_id => id}}
+    {:with => {:model_id => id}}
   }
   sphinx_scope(:by_engine_id) { |id|
-    {:conditions => {:engine_id => id}}
+    {:with => {:engine_id => id}}
   }
   sphinx_scope(:by_city_id) { |id|
-    {:conditions => {:city_id => id}}
+    {:with => {:city_id => id}}
+  }
+  
+  sphinx_scope(:with_mileage) { |min, max|
+    {:with => { :mileage => (min.to_i)..(max.to_i) }}
   }
   
   # end of Sphinx
