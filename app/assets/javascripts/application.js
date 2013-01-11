@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.slider
+//= require jquery-fileupload
 //= require bootstrap-modal
 //= require bootstrap-tab
 //= require bootstrap-button

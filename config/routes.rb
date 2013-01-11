@@ -39,6 +39,9 @@ TestApp2::Application.routes.draw do
   
   resources :metaprogramms
   
+  
+  resources :uploads
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

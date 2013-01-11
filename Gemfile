@@ -26,6 +26,13 @@ gem "thinking-sphinx", "~> 2.0.13"
 
 gem "rails_best_practices"
 
+# multiload files
+gem "jquery-fileupload-rails", "~> 0.4.0"
+# как альтернативу берем carrierwave
+#gem 'carrierwave'
+#gem 'rmagick'
+
+
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -11,6 +11,49 @@
 # Кеширование http://over9000.org/rails/high-performance-rails-caching-with-redis-and-nginx
 # http://railslab.newrelic.com/scaling-rails
 
+
+
+
+##################################
+
+
+  GNU nano 2.0.9                                        File: deploy.rb
+
+require 'bundler/capistrano'
+require 'sidekiq/capistrano'
+require 'capistrano/ext/multistage'
+
+set :stages, %w(xxxxxxx xxxx zzzzzzzz)
+set :default_stage, 'xxxxxxx'
+set :application, 'yyyyyyyy'
+
+on :start do
+  set :rails_env, 'production'
+end
+
+set :repository,  'git@github.com:xxxxxxxxx/yyyyyyyyyyyy.git'
+
+set :keep_releases, 1
+
+
+namespace :deploy do
+  task :configure do
+    run "ln -f #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+
+  task :install do
+    run "cd #{release_path}; bundle exec rake db:install RAILS_ENV=#{rails_env}"
+  end
+
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
+
+
+
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
