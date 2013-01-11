@@ -14,41 +14,6 @@
 
 
 
-##################################
-
-
-  GNU nano 2.0.9                                        File: deploy.rb
-
-require 'bundler/capistrano'
-require 'sidekiq/capistrano'
-require 'capistrano/ext/multistage'
-
-set :stages, %w(xxxxxxx xxxx zzzzzzzz)
-set :default_stage, 'xxxxxxx'
-set :application, 'yyyyyyyy'
-
-on :start do
-  set :rails_env, 'production'
-end
-
-set :repository,  'git@github.com:xxxxxxxxx/yyyyyyyyyyyy.git'
-
-set :keep_releases, 1
-
-
-namespace :deploy do
-  task :configure do
-    run "ln -f #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-
-  task :install do
-    run "cd #{release_path}; bundle exec rake db:install RAILS_ENV=#{rails_env}"
-  end
-
-  task :restart do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-end
 
 
 
@@ -315,3 +280,41 @@ vendor
   External libraries that the application depends on. Also includes the plugins
   subdirectory. If the app has frozen rails, those gems also go here, under
   vendor/rails/. This directory is in the load path.
+
+  
+  
+##################################
+
+
+  GNU nano 2.0.9                                        File: deploy.rb
+
+require 'bundler/capistrano'
+require 'sidekiq/capistrano'
+require 'capistrano/ext/multistage'
+
+set :stages, %w(xxxxxxx xxxx zzzzzzzz)
+set :default_stage, 'xxxxxxx'
+set :application, 'yyyyyyyy'
+
+on :start do
+  set :rails_env, 'production'
+end
+
+set :repository,  'git@github.com:xxxxxxxxx/yyyyyyyyyyyy.git'
+
+set :keep_releases, 1
+
+
+namespace :deploy do
+  task :configure do
+    run "ln -f #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+
+  task :install do
+    run "cd #{release_path}; bundle exec rake db:install RAILS_ENV=#{rails_env}"
+  end
+
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
